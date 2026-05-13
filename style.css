@@ -1,0 +1,469 @@
+:root {
+    --mac-bg: #151516;
+    --mac-glass: rgba(40, 40, 42, 0.6);
+    --mac-border: rgba(255, 255, 255, 0.08);
+    --mac-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    --mac-inner-light: inset 0 1px 0 rgba(255, 255, 255, 0.1);
+    
+    --text-primary: #f5f5f7;
+    --text-secondary: #86868b;
+    --accent: #2997ff;
+    
+    --font-system: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Inter", sans-serif;
+    --font-serif: "Playfair Display", serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+}
+
+body {
+    background-color: var(--mac-bg);
+    color: var(--text-primary);
+    font-family: var(--font-system);
+    -webkit-font-smoothing: antialiased;
+    position: relative;
+}
+
+.mac-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(circle at 50% 0%, #2a2a2c 0%, var(--mac-bg) 70%);
+    z-index: -1;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+.section {
+    width: 100%;
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 100px 5%; /* Using % for responsive padding */
+}
+
+.center-content {
+    text-align: center;
+}
+
+/* Glassmorphism */
+.glass {
+    background: var(--mac-glass);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
+    border: 1px solid var(--mac-border);
+    box-shadow: var(--mac-shadow), var(--mac-inner-light);
+    border-radius: 24px;
+}
+
+.glass-card {
+    max-width: 800px;
+    width: 100%;
+    padding: 3rem;
+    margin: 0 auto;
+}
+
+/* Navbar */
+.mac-nav {
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px 30px;
+    border-radius: 40px;
+    z-index: 1000;
+    width: auto;
+    max-width: 90vw;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 500;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+}
+
+.nav-links a:hover {
+    color: var(--text-primary);
+}
+
+/* Typography */
+h1, h2, h3, h4, .thank-you {
+    font-weight: 600;
+    letter-spacing: -0.02em;
+}
+
+.section-title {
+    font-size: clamp(2rem, 5vw, 2.5rem);
+    margin-bottom: 2rem;
+    color: var(--text-primary);
+}
+
+.text-body {
+    font-size: clamp(1rem, 2vw, 1.1rem);
+    line-height: 1.6;
+    color: var(--text-secondary);
+}
+
+.mt-2 { margin-top: 1rem; }
+.mt-3 { margin-top: 2rem; }
+.mt-4 { margin-top: 4rem; }
+
+/* Hero */
+.hero-glass {
+    padding: clamp(2rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+}
+
+.avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1.5rem;
+    border: 2px solid var(--mac-border);
+}
+
+.hero-title {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    margin-bottom: 0.5rem;
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+    color: var(--text-secondary);
+    height: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn-primary {
+    background: var(--text-primary);
+    color: #000;
+}
+
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+/* About Gallery */
+.about-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.gallery-img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 16px;
+    border: 1px solid var(--mac-border);
+    object-fit: contain;
+}
+
+/* Education & Skills */
+.uni-logo {
+    width: 80px;
+    height: auto;
+    margin-bottom: 1rem;
+    background: white;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.uni-name {
+    font-size: clamp(1.2rem, 4vw, 1.5rem);
+    margin-bottom: 0.25rem;
+}
+
+.uni-major, .uni-gpa {
+    color: var(--text-secondary);
+}
+
+.uni-gpa {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 2rem;
+}
+
+.skills-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    text-align: center;
+}
+
+.skill-col {
+    flex: 1 1 250px;
+}
+
+.skill-col h4 {
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+}
+
+.skill-col p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+}
+
+/* Mobile-Optimized macOS Dock */
+.dock-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    max-width: 100%;
+    overflow: visible;
+}
+
+.mac-dock {
+    display: flex;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 24px;
+    flex-wrap: nowrap; /* Prevent wrap to mimic a real dock */
+    overflow-x: auto; /* Horizontal scroll on mobile */
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Hide scrollbar Firefox */
+    max-width: 100%;
+}
+
+.mac-dock::-webkit-scrollbar {
+    display: none; /* Hide scrollbar Chrome/Safari */
+}
+
+.mac-dock img {
+    height: 40px;
+    width: auto;
+    object-fit: contain;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 10px;
+    padding: 5px;
+    transition: transform 0.2s;
+    flex-shrink: 0; /* Prevent shrinking when scrolling */
+}
+
+.mac-dock img:hover {
+    transform: translateY(-5px) scale(1.1);
+}
+
+/* Experience */
+.experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    width: 100%;
+    max-width: 800px;
+}
+
+.exp-card {
+    padding: clamp(1.5rem, 4vw, 2rem);
+}
+
+.exp-card h3 {
+    font-size: clamp(1.1rem, 3vw, 1.3rem);
+    margin-bottom: 0.5rem;
+}
+
+.exp-card h4 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
+
+.exp-card .date {
+    font-size: 0.85rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+.exp-mini-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.exp-mini-grid img {
+    width: clamp(80px, 20vw, 120px);
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--mac-border);
+    object-fit: contain;
+}
+
+/* Perfect Tetris Masonry Portfolio */
+.full-height-portfolio {
+    justify-content: center;
+}
+
+.tetris-grid {
+    column-count: 3;
+    column-gap: 1.5rem;
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.tetris-item {
+    break-inside: avoid;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.tetris-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Play Button for Videos */
+.play-btn {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(40, 40, 42, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.play-btn:hover {
+    transform: translateX(-50%) scale(1.05);
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* Contact */
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    align-items: center;
+}
+
+.contact-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: clamp(1rem, 3vw, 1.1rem);
+    transition: color 0.2s;
+    word-break: break-all;
+}
+
+.contact-links a:hover {
+    color: var(--text-primary);
+}
+
+.thank-you {
+    font-size: clamp(2rem, 8vw, 3rem);
+    font-family: var(--font-serif);
+    font-style: italic;
+    color: var(--text-secondary);
+}
+
+/* Responsive Overrides */
+@media (max-width: 768px) {
+    .mac-nav {
+        border-radius: 20px;
+        width: 95%;
+        padding: 10px;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .mac-nav::-webkit-scrollbar {
+        display: none;
+    }
+    .nav-links {
+        gap: 1rem;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        padding: 0 10px;
+    }
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+    .glass-card {
+        padding: 1.5rem;
+    }
+    .dock-container {
+        padding: 0;
+    }
+    .mac-dock {
+        border-radius: 16px;
+    }
+    .tetris-grid {
+        column-count: 2;
+        column-gap: 1rem;
+    }
+    .tetris-item {
+        margin-bottom: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .tetris-grid {
+        column-count: 1;
+    }
+}
